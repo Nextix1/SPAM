@@ -1,7 +1,7 @@
 local function callback(Text)
  if Text == "Ok" then
   print ("Answer")
-elseif Text == ("Kys") then
+elseif Text == ("big boobs🤤") then
  print ("Answer2")
  end
 end
@@ -10,7 +10,7 @@ local NotificationBindable = Instance.new("BindableFunction")
 NotificationBindable.OnInvoke = callback
 --
 game.StarterGui:SetCore("SendNotification",  {
- Title = "MYN Hub Autoparry";
+ Title = "MYN HUB Hold Block Spam";
  Text = "Loaded!";
  Icon = "";
  Duration = 5;
