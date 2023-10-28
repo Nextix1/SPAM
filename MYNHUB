@@ -1,0 +1,22 @@
+local function callback(Text)
+ if Text == "Ok" then
+  print ("Answer")
+elseif Text == ("Kys") then
+ print ("Answer2")
+ end
+end
+
+local NotificationBindable = Instance.new("BindableFunction")
+NotificationBindable.OnInvoke = callback
+--
+game.StarterGui:SetCore("SendNotification",  {
+ Title = "MYN Hub Autoparry";
+ Text = "Loaded!";
+ Icon = "";
+ Duration = 5;
+ Button1 = "Ok";
+ Button2 = "big boobs🤤";
+ Callback = NotificationBindable;
+})
+
+getgenv().SpamSpeed = 1 loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Spam",true))()
