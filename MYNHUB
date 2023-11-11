@@ -1,1 +1,8 @@
+game:GetService("StarterGui"):SetCore("SendNotification",{
+	Title = "MYN HUB HOLD BLOCK TO SPAM", -- Required
+	Text = "LOADED!", -- Required
+	Icon = "" -- Optional
+})
+
+
 getgenv().SpamSpeed = 1 loadstring(game:HttpGet("https://raw.githubusercontent.com/Hosvile/Refinement/main/MC%3ABlade%20Ball%20Spam",true))()
