@@ -12,7 +12,7 @@ gui.ResetOnSpawn = false
 gui.Parent = game.CoreGui
 
 local buttonToggle = Instance.new("TextButton")
-buttonToggle.Size = UDim2.new(0, 100, 0, 20)
+buttonToggle.Size = UDim2.new(0, 100, 0, 50)
 buttonToggle.Position = UDim2.new(0, 10, 0, 10)
 buttonToggle.AnchorPoint = Vector2.new(0, 0)
 buttonToggle.Text = "Spam"
