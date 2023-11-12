@@ -16,8 +16,8 @@ buttonToggle.Size = UDim2.new(0, 100, 0, 20)
 buttonToggle.Position = UDim2.new(0, 10, 0, 10)
 buttonToggle.AnchorPoint = Vector2.new(0, 0)
 buttonToggle.Text = "Spam"
-buttonToggle.TextSize = 7
-buttonToggle.BackgroundTransparency = 0.8
+buttonToggle.TextSize = 8.7
+buttonToggle.BackgroundTransparency = 0
 buttonToggle.TextTransparency = 0.2
 buttonToggle.Parent = gui
 
