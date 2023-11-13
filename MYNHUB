@@ -33,7 +33,7 @@ local function toggleSpam()
             if not debounce then
                 debounce = true
                 game.ReplicatedStorage.Remotes.ParryButtonPress:Fire()
-                wait(0)
+                wait()
                 debounce = false
             end
         end
