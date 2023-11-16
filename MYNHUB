@@ -1,47 +1,61 @@
 game:GetService("StarterGui"):SetCore("SendNotification",{
-	Title = "MYN HUB SPAM BUTTON", -- Required
+	Title = "NEXTIX HUB SPAM BUTTON", -- Required
 	Text = "LOADED!", -- Required
 	Icon = "" -- Optional
 })
 
 
-local player = game.Players.LocalPlayer
-local gui = Instance.new("ScreenGui")
-gui.Name = "Spam"
-gui.ResetOnSpawn = false
-gui.Parent = game.CoreGui
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
 
-local buttonToggle = Instance.new("TextButton")
-buttonToggle.Size = UDim2.new(0, 100, 0, 55)
-buttonToggle.Position = UDim2.new(0, 10, 0, 10)
-buttonToggle.AnchorPoint = Vector2.new(0, 0)
-buttonToggle.Text = "Spam"
-buttonToggle.TextSize = 10
-buttonToggle.BackgroundTransparency = 0
-buttonToggle.TextTransparency = 0.2
-buttonToggle.Parent = gui
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.Name = "SpamButton"
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Parent = LocalPlayer.PlayerGui
 
-local spamActive = false
-local debounce = false
+local ToggleButton1 = Instance.new("TextButton")
+ToggleButton1.Text = "Spam Button: Off"
+ToggleButton1.Position = UDim2.new(0.970,-100,0.110,-20)
+ToggleButton1.Size = UDim2.new(0,100,0,40)
+ToggleButton1.TextColor3 = Color3.fromRGB(255,0,0)
+ToggleButton1.BackgroundColor3 = Color3.new(0,0,0)
+ToggleButton1.BorderColor3 = Color3.new(255,0,0)
+ToggleButton1.Transparency = .1
+ToggleButton1.TextTransparency = 0
+ToggleButton1.Parent = ScreenGui
 
-local function toggleSpam()
-    spamActive = not spamActive
+local toggleState1 = false
 
-    if spamActive then
-        buttonToggle.Text = "Spam On"
-        while spamActive do
-            if not debounce then
-                debounce = true
-                game.ReplicatedStorage.Remotes.ParryButtonPress:Fire()
-                wait()
-                debounce = false
-            end
-        end
+local function ToggleButton(button, toggleState)
+    if toggleState then
+        button.TextColor3 = Color3.fromRGB(255,255,255)
     else
-        buttonToggle.Text = "Spam Off"
+        button.TextColor3 = Color3.fromRGB(255,255,255)
     end
 end
 
-buttonToggle.MouseButton1Click:Connect(function()
-    toggleSpam()
+ToggleButton1.MouseButton1Click:Connect(function()
+    toggleState1 = not toggleState1
+    ToggleButton(ToggleButton1, toggleState1)
+    if toggleState1 then
+SpamParry = true
+ToggleButton1.Text = "Spam Button: On"
+while SpamParry do
+for i = 1,50 do
+game.ReplicatedStorage.Remotes.ParryButtonPress:Fire()
+end
+task.wait()
+end
+    else
+SpamParry = false
+ToggleButton1.Text = "Spam Button: Off"
+while SpamParry do
+for i = 1.50 do
+game.ReplicatedStorage.Remotes.ParryButtonPress:Fire()
+end
+task.wait()
+end
+    end
 end)
+end    
+})
