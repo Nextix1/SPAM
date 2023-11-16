@@ -4,7 +4,6 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 	Icon = "" -- Optional
 })
 
-
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
@@ -14,22 +13,22 @@ ScreenGui.ResetOnSpawn = false
 ScreenGui.Parent = LocalPlayer.PlayerGui
 
 local ToggleButton1 = Instance.new("TextButton")
-ToggleButton1.Text = "Spam Button: Off"
+ToggleButton1.Text = "Spam Button"
 ToggleButton1.Position = UDim2.new(0.970,-100,0.110,-20)
 ToggleButton1.Size = UDim2.new(0,100,0,40)
 ToggleButton1.TextColor3 = Color3.fromRGB(255,0,0)
 ToggleButton1.BackgroundColor3 = Color3.new(0,0,0)
-ToggleButton1.BorderColor3 = Color3.new(255,0,0)
 ToggleButton1.Transparency = .1
 ToggleButton1.TextTransparency = 0
 ToggleButton1.Parent = ScreenGui
 
 local toggleState1 = false
+
 local function ToggleButton(button, toggleState)
     if toggleState then
-        button.TextColor3 = Color3.fromRGB(255,255,255)
+        button.TextColor3 = Color3.fromRGB(0,255,0)
     else
-        button.TextColor3 = Color3.fromRGB(255,255,255)
+        button.TextColor3 = Color3.fromRGB(255,0,0)
     end
 end
 
@@ -38,23 +37,19 @@ ToggleButton1.MouseButton1Click:Connect(function()
     ToggleButton(ToggleButton1, toggleState1)
     if toggleState1 then
 SpamParry = true
-ToggleButton1.Text = "Spam Button: On"
 while SpamParry do
-for i = 1.50 do
+for i = 1,50 do
 game.ReplicatedStorage.Remotes.ParryButtonPress:Fire()
 end
 task.wait()
 end
     else
 SpamParry = false
-ToggleButton1.Text = "Spam Button: Off"
 while SpamParry do
-for i = 1.50 do
+for i = 1,50 do
 game.ReplicatedStorage.Remotes.ParryButtonPress:Fire()
 end
 task.wait()
 end
     end
 end)
-end    
-})
