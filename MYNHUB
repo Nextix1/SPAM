@@ -25,7 +25,6 @@ ToggleButton1.TextTransparency = 0
 ToggleButton1.Parent = ScreenGui
 
 local toggleState1 = false
-
 local function ToggleButton(button, toggleState)
     if toggleState then
         button.TextColor3 = Color3.fromRGB(255,255,255)
@@ -41,7 +40,7 @@ ToggleButton1.MouseButton1Click:Connect(function()
 SpamParry = true
 ToggleButton1.Text = "Spam Button: On"
 while SpamParry do
-for i = 1,50 do
+for i = 1.50 do
 game.ReplicatedStorage.Remotes.ParryButtonPress:Fire()
 end
 task.wait()
