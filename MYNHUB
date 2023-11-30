@@ -1,9 +1,3 @@
-game:GetService("StarterGui"):SetCore("SendNotification",{
-	Title = "NEXTIX HUB SPAM BUTTON", -- Required
-	Text = "LOADED!", -- Required
-	Icon = "" -- Optional
-})
-
 local Players = game:GetService("Players")
 local LocalPlayer = Players.LocalPlayer
 
