@@ -6,44 +6,52 @@ ScreenGui.Name = "SpamButton"
 ScreenGui.ResetOnSpawn = false
 ScreenGui.Parent = LocalPlayer.PlayerGui
 
-local ToggleButton1 = Instance.new("TextButton")
-ToggleButton1.Text = "Spam Button"
-ToggleButton1.Position = UDim2.new(0.970,-100,0.110,-20)
-ToggleButton1.Size = UDim2.new(0,100,0,40)
-ToggleButton1.TextColor3 = Color3.fromRGB(255,0,0)
-ToggleButton1.BackgroundColor3 = Color3.new(0,0,0)
-ToggleButton1.Transparency = .1
-ToggleButton1.TextTransparency = 0
-ToggleButton1.Parent = ScreenGui
+local SpamButton = Instance.new("TextButton")
+SpamButton.Text = "Spam Button: Off"
+SpamButton.Position = UDim2.new(0.600,-100,0.110,-20)
+SpamButton.Size = UDim2.new(0,100,0,50)
+SpamButton.TextColor3 = Color3.fromRGB(255,0,0)
+SpamButton.BackgroundColor3 = Color3.new(0,0,0)
+SpamButton.BorderColor3 = Color3.new(0,0,0)
+SpamButton.BorderSizePixel = 3
+SpamButton.Draggable = true
+SpamButton.Transparency = 0
+SpamButton.TextTransparency = 0
+SpamButton.Parent = ScreenGui
 
-local toggleState1 = false
+local SpamButtonToggle = false
 
-local function ToggleButton(button, toggleState)
-    if toggleState then
-        button.TextColor3 = Color3.fromRGB(0,255,0)
+local function ToggleButton(Button, ToggleState)
+    if ToggleState then
+        Button.TextColor3 = Color3.fromRGB(0,255,0)
     else
-        button.TextColor3 = Color3.fromRGB(255,0,0)
+        Button.TextColor3 = Color3.fromRGB(255,0,0)
     end
 end
 
-ToggleButton1.MouseButton1Click:Connect(function()
-    toggleState1 = not toggleState1
-    ToggleButton(ToggleButton1, toggleState1)
-    if toggleState1 then
-SpamParry = true
-while SpamParry do
-for i = 1,50 do
-game.ReplicatedStorage.Remotes.ParryButtonPress:Fire()
-end
-task.wait()
-end
+SpamButton.MouseButton1Click:Connect(function()
+    SpamButtonToggle = not SpamButtonToggle
+    ToggleButton(SpamButton, SpamButtonToggle)
+    if SpamButtonToggle then
+        SpamButton.Text = "Spam Button: On"
     else
-SpamParry = false
-while SpamParry do
-for i = 1,50 do
-game.ReplicatedStorage.Remotes.ParryButtonPress:Fire()
-end
-task.wait()
-end
+        SpamButton.Text = "Spam Button: Off"
     end
 end)
+
+while true do
+    SpamButton.BorderColor3 = Color3.new(255,0,0)
+    wait()
+    SpamButton.BorderColor3 = Color3.new(255,128,0)
+    wait()
+    SpamButton.BorderColor3 = Color3.new(255,255,0)
+    wait()
+    SpamButton.BorderColor3 = Color3.new(0,128,0)
+    wait()
+    SpamButton.BorderColor3 = Color3.new(0,0,255)
+    wait()
+    SpamButton.BorderColor3 = Color3.new(75,0,130)
+    wait()
+    SpamButton.BorderColor3 = Color3.new(127,0,255)
+    wait(0.1)
+end
